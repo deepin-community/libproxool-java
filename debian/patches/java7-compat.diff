@@ -1,0 +1,29 @@
+Description: Fix FTBFS with Java7
+
+--- libproxool-java-0.9.1.orig/src/java/org/logicalcobwebs/proxool/ProxoolDataSource.java
++++ libproxool-java-0.9.1/src/java/org/logicalcobwebs/proxool/ProxoolDataSource.java
+@@ -692,6 +692,11 @@ public class ProxoolDataSource implement
+     public boolean isWrapperFor(Class<?> iface) throws SQLException {
+ 	return false;
+     }
++
++    // Java7 compat
++    public java.util.logging.Logger getParentLogger() throws java.sql.SQLFeatureNotSupportedException {
++        throw new java.sql.SQLFeatureNotSupportedException();
++    }
+ }
+ 
+ /*
+--- libproxool-java-0.9.1.orig/src/java/org/logicalcobwebs/proxool/ProxoolDriver.java
++++ libproxool-java-0.9.1/src/java/org/logicalcobwebs/proxool/ProxoolDriver.java
+@@ -221,6 +221,10 @@ public class ProxoolDriver implements Dr
+         return true;
+     }
+ 
++    // Java7 compat
++    public java.util.logging.Logger getParentLogger() throws java.sql.SQLFeatureNotSupportedException {
++        throw new java.sql.SQLFeatureNotSupportedException();
++    }
+ }
+ 
+ /*

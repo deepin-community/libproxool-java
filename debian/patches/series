@@ -1,0 +1,6 @@
+testsuite.diff
+missing-methods.diff
+cglib.diff
+proxool-detect-cglib-enhancer.diff
+java7-compat.diff
+java9-compat.diff

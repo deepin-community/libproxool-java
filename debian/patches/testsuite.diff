@@ -1,0 +1,50 @@
+Index: libproxool-java-0.9.1/src/java-test/org/logicalcobwebs/proxool/AllTests.java
+===================================================================
+--- libproxool-java-0.9.1.orig/src/java-test/org/logicalcobwebs/proxool/AllTests.java	2009-12-18 12:00:23.242162589 +0100
++++ libproxool-java-0.9.1/src/java-test/org/logicalcobwebs/proxool/AllTests.java	2009-12-18 12:00:28.502184731 +0100
+@@ -30,24 +30,24 @@
+         suite.addTestSuite(ConnectionInfoTest.class);
+         suite.addTestSuite(ConnectionListenerTest.class);
+         suite.addTestSuite(ConnectionResetterTest.class);
+-        suite.addTestSuite(ProxoolDataSourceTest.class);
++/*        suite.addTestSuite(ProxoolDataSourceTest.class);*/
+         suite.addTestSuite(DriverTest.class);
+         suite.addTestSuite(ConnectionPoolTest.class);
+-        suite.addTestSuite(FatalSqlExceptionTest.class);
+-        suite.addTestSuite(HibernateTest.class);
++/*        suite.addTestSuite(FatalSqlExceptionTest.class);*/
++/*        suite.addTestSuite(HibernateTest.class);*/
+         suite.addTestSuite(HouseKeeperTest.class);
+         suite.addTestSuite(HypersonicTest.class);
+-        suite.addTestSuite(KillTest.class);
++/*        suite.addTestSuite(KillTest.class);*/
+         suite.addTestSuite(ManyPoolsTest.class);
+         suite.addTestSuite(PropertyTest.class);
+         suite.addTestSuite(PrototyperTest.class);
+         suite.addTestSuite(ProxyConnectionTest.class);
+-        suite.addTestSuite(ProxyDatabaseMetaDataTest.class);
+-        suite.addTestSuite(ProxyStatementTest.class);
++/*        suite.addTestSuite(ProxyDatabaseMetaDataTest.class);*/
++/*        suite.addTestSuite(ProxyStatementTest.class);*/
+         suite.addTestSuite(RegistrationTest.class);
+         suite.addTestSuite(StateListenerTest.class);
+-        suite.addTestSuite(UpdateDefinitionTest.class);
+-        suite.addTestSuite(WrapperTest.class);
++/*        suite.addTestSuite(UpdateDefinitionTest.class);*/
++/*        suite.addTestSuite(WrapperTest.class);*/
+         // TODO Need more investigation into why this fails sometimes.
+         // suite.addTestSuite(PerformanceTest.class);
+ 
+Index: libproxool-java-0.9.1/src/java-test/org/logicalcobwebs/proxool/configuration/AllTests.java
+===================================================================
+--- libproxool-java-0.9.1.orig/src/java-test/org/logicalcobwebs/proxool/configuration/AllTests.java	2009-12-18 12:00:23.312168474 +0100
++++ libproxool-java-0.9.1/src/java-test/org/logicalcobwebs/proxool/configuration/AllTests.java	2009-12-18 12:00:28.502184731 +0100
+@@ -30,7 +30,7 @@
+         suite.addTestSuite(ConfiguratorTest.class);
+         suite.addTestSuite(PropertyConfiguratorTest.class);
+         suite.addTestSuite(JAXPConfiguratorTest.class);
+-        suite.addTestSuite(AvalonConfiguratorTest.class);
++/*        suite.addTestSuite(AvalonConfiguratorTest.class);*/
+ 
+         // create a wrapper for global initialization code.
+         TestSetup wrapper = new TestSetup(suite) {

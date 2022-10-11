@@ -1,0 +1,14 @@
+Description: Fixes the compatibility with Java 9
+Author: Emmanuel Bourg <ebourg@apache.org>
+Forwarded: no
+--- a/src/java-test/org/logicalcobwebs/proxool/GlobalTest.java
++++ b/src/java-test/org/logicalcobwebs/proxool/GlobalTest.java
+@@ -90,7 +90,7 @@
+     	Properties props = new Properties();
+     	try {
+     		LOG.info("Loading test configuration from "+resourceName);
+-    		resourceStream = resourceName.getClass().getResourceAsStream(resourceName);
++    		resourceStream = GlobalTest.class.getResourceAsStream(resourceName);
+     		props.load(resourceStream);
+     	}
+     	catch(Exception e)

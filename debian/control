@@ -1,0 +1,31 @@
+Source: libproxool-java
+Section: java
+Priority: optional
+Maintainer: Debian Java Maintainers <pkg-java-maintainers@lists.alioth.debian.org>
+Uploaders: Varun Hiremath <varun@debian.org>, Torsten Werner <twerner@debian.org>, Emmanuel Bourg <ebourg@apache.org>
+Build-Depends:
+ debhelper-compat (= 13),
+ maven-repo-helper
+Build-Depends-Indep:
+ ant,
+ default-jdk,
+ junit,
+ libcglib-java,
+ libcommons-logging-java,
+ libhsqldb1.8.0-java,
+ liblog4j1.2-java,
+ libservlet3.1-java
+Standards-Version: 4.5.1
+Vcs-Git: https://salsa.debian.org/java-team/libproxool-java.git
+Vcs-Browser: https://salsa.debian.org/java-team/libproxool-java
+Homepage: http://proxool.sourceforge.net
+Rules-Requires-Root: no
+
+Package: libproxool-java
+Architecture: all
+Depends: ${misc:Depends}
+Description: Java JDBC connection pool
+ A Java SQL Driver that provides a connection pool wrapper around
+ another Driver of your choice. Very simple to migrate existing code.
+ Fully configurable. Fast, mature and robust. Transparently adds
+ connection pooling to your existing JDBC driver.

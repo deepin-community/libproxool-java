@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="jar" name="${project.name}" basedir="..">
+
+  <target name="clean">
+    <delete dir="${class.dir}" quiet="true"/>
+    <delete file="${jar.name}" quiet="true"/>
+    <delete dir="${doc.dir}" quiet="true"/>
+    <delete dir="db"/>
+  </target>
+
+  <target name="compile">
+    <mkdir dir="${class.dir}"/>
+    <javac srcdir="${source.dir}" destdir="${class.dir}"
+    target="1.5" source="1.5"
+    deprecation="true" debug="true" optimize="false">
+      <exclude name="**/AvalonConfigurator.java"/>
+    </javac>
+  </target>
+
+  <target name="jar" description="o Create the jar" depends="compile">
+    <jar jarfile="${jar.name}">
+      <fileset dir="${class.dir}" />
+      <fileset dir="${source.dir}"><include name="org/logicalcobwebs/proxool/resources/**"/></fileset>
+
+    </jar>
+  </target>
+
+  <target name="compile-tests">
+    <javac sourcepath="" srcdir="${testsource.dir}" destdir="${class.dir}"
+    target="1.5" source="1.5"
+    deprecation="true" debug="true" optimize="false">
+      <include name="**/*.java"/>
+      <exclude name="**/*Hibernate*.java"/>
+      <exclude name="**/*Spring*.java"/>
+      <exclude name="**/ProxoolDataSourceTest.java"/>
+      <exclude name="**/AvalonConfiguratorTest.java"/>
+      <exclude name="**/LogKitTargetAdapter.java"/>
+      <exclude name="**/HibernateTest.java"/>
+    </javac>
+    <copy todir="${class.dir}">
+       <fileset dir="src/java-test" includes="**/*.properties,**/*.xml"/>
+       <fileset dir="${source.dir}"><include name="org/logicalcobwebs/proxool/resources/**"/></fileset>
+    </copy>
+  </target>
+
+  <target name="test" depends="compile-tests">
+    <echo message="Running tests, this can take a few minutes."/>
+    <java fork="yes" failonerror="true" classpath="${jar.name};${class.dir}" classname="junit.textui.TestRunner" >
+      <sysproperty key="log4jPath" value="src/java-test/org/logicalcobwebs/proxool/log4j-test.xml"/>
+      <arg value="org.logicalcobwebs.proxool.GlobalTest"/>
+    </java>
+    <echo message="Note! These unit tests have probably produced some worrying exceptions. As long as the tests passed then you can ignore these exceptions. They are part of the tests."/>
+  </target>
+
+  <target name="javadoc" description="Creates Javadoc documentation">
+    <mkdir dir="${doc.dir}"/>
+    <javadoc packagenames="org.logicalcobwebs.*"
+      sourcepath="${source.dir}" destdir="${doc.dir}"/>
+  </target>
+
+</project>

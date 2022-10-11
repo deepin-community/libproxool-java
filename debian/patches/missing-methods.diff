@@ -1,0 +1,29 @@
+Author: Varun Hiremath <vh63@cornell.edu>
+Date: Thu, 15 Oct 2009 21:20:29 -0400
+Description: Add missing methods, fixes build.
+Index: libproxool-java-0.9.1/src/java/org/logicalcobwebs/proxool/ProxoolDataSource.java
+===================================================================
+--- libproxool-java-0.9.1.orig/src/java/org/logicalcobwebs/proxool/ProxoolDataSource.java	2009-10-15 21:17:47.000000000 -0400
++++ libproxool-java-0.9.1/src/java/org/logicalcobwebs/proxool/ProxoolDataSource.java	2009-10-15 21:18:49.000000000 -0400
+@@ -684,6 +684,14 @@
+         throw new UnsupportedOperationException("You should configure the username and password "
+                 + "within the proxool configuration and just call getConnection() instead.");
+     }
++
++    public <T> T unwrap(Class<T> iface) throws SQLException {
++	return null;
++    }
++
++    public boolean isWrapperFor(Class<?> iface) throws SQLException {
++	return false;
++    }
+ }
+ 
+ /*
+@@ -722,4 +730,4 @@
+  Revision 1.1  2004/03/15 23:54:25  chr32
+  Initail Proxool J2EE-managed DataSource. Not quite complete yet.
+ 
+- */
+\ No newline at end of file
++ */

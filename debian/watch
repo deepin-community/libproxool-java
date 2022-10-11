@@ -1,0 +1,3 @@
+version=3
+opts="uversionmangle=s/RC/~rc/" \
+  http://sf.net/proxool/ proxool-(.*)-source\.tar\.gz debian debian/orig-tar.sh

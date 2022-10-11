@@ -1,0 +1,154 @@
+libproxool-java (0.9.1-11) unstable; urgency=medium
+
+  * Team upload.
+  * Update Vcs URLs to point to Salsa
+  * Use debhelper-compat 13
+  * Allow tests to be overridden with DEB_BUILD_OPTIONS
+  * Bump Standards-Version to 4.5.1
+  * Set Rules-Requires-Root: no in debian/control
+
+ -- tony mancill <tmancill@debian.org>  Tue, 08 Dec 2020 21:41:36 -0800
+
+libproxool-java (0.9.1-10) unstable; urgency=medium
+
+  * Team upload.
+  * Fixed the build failure with Java 9 (Closes: #893269)
+  * Build with the DH sequencer instead of CDBS
+  * Moved the package to Git
+  * Standards-Version updated to 4.1.4
+  * Switch to debhelper level 11
+
+ -- Emmanuel Bourg <ebourg@apache.org>  Tue, 17 Apr 2018 23:39:07 +0200
+
+libproxool-java (0.9.1-9) unstable; urgency=medium
+
+  * Team upload.
+  * Build depend on libcglib-java instead of libcglib3-java
+  * Removed the dependency on avalon-framework and excalibur-logkit
+  * Standards-Version updated to 3.9.8
+
+ -- Emmanuel Bourg <ebourg@apache.org>  Mon, 26 Sep 2016 16:39:46 +0200
+
+libproxool-java (0.9.1-8) unstable; urgency=medium
+
+  * Build depend on libcglib3-java instead of libcglib-java
+  * Transition to the Servlet API 3.1
+  * Standards-Version updated to 3.9.5 (no changes)
+  * Switch to debhelper level 9
+
+ -- Emmanuel Bourg <ebourg@apache.org>  Mon, 15 Sep 2014 16:12:22 +0200
+
+libproxool-java (0.9.1-7) unstable; urgency=low
+
+  * Replaced the dependency on libhsqldb-java with libhsqldb1.8.0-java
+    (Closes: #713158)
+  * Transition to the Servlet API 3.0
+  * debian/rules: Improved the clean target
+  * Updated Standards-Version to 3.9.4 (no changes)
+  * Use canonical URLs for the Vcs-* fields
+
+ -- Emmanuel Bourg <ebourg@apache.org>  Thu, 18 Jul 2013 15:14:15 +0200
+
+libproxool-java (0.9.1-6) unstable; urgency=low
+
+  * Team upload.
+  * Fix FTBFS with Java7.
+
+ -- Niels Thykier <niels@thykier.net>  Sun, 24 Jun 2012 16:06:38 +0200
+
+libproxool-java (0.9.1-5) unstable; urgency=low
+
+  [Miguel Landaeta]
+  * Team upload.
+  * Replace dependencies on Servlet 2.4 library with 2.5. (Closes: #658799)
+  * Bump Standards-Version to 3.9.3. No changes were required.
+
+  [tony mancill]
+  * Remove needless dependency on JRE.
+
+ -- tony mancill <tmancill@debian.org>  Sat, 03 Mar 2012 08:53:32 -0800
+
+libproxool-java (0.9.1-4) unstable; urgency=low
+
+  * Install POM file.
+
+ -- Torsten Werner <twerner@debian.org>  Fri, 21 May 2010 23:11:37 +0200
+
+libproxool-java (0.9.1-3) unstable; urgency=low
+
+  * Merge changes from Ubuntu.
+  * Change Build-Depends: libexcalibur-logkit-java.
+  * Switch to source format 3.0.
+  * Update Standards-Version: 3.8.4.
+
+ -- Torsten Werner <twerner@debian.org>  Sat, 08 May 2010 13:26:38 +0200
+
+libproxool-java (0.9.1-2ubuntu4) lucid; urgency=low
+
+  * Enable test suite:
+    * debian/ant.properties, debian/build.xml: Add ant rules to run tests
+    * debian/control: Added missing build-depends necessary for tests
+    * debian/rules: Enable tests, add missing JARs to classpath
+    * debian/patches/cglib.diff: updated so that src/java-test is also patched
+    * debian/patches/testsuite.diff: Disable some tests that require
+      non-packaged or universe dependencies, or fail due to CGLIB not being
+      repackaged in the proxool jar.
+  * debian/build.xml: Properly remove doc build directory on clean target
+
+ -- Thierry Carrez <thierry.carrez@ubuntu.com>  Fri, 18 Dec 2009 12:09:39 +0100
+
+libproxool-java (0.9.1-2ubuntu3) lucid; urgency=low
+
+  * debian/patches/proxool-detect-cglib-enhancer.diff: Fallback to using the
+    standard J2SE Proxy mechanism if it determines that using cglib would fail
+    because of a class loading issue
+
+ -- Thierry Carrez <thierry.carrez@ubuntu.com>  Thu, 17 Dec 2009 15:18:27 +0100
+
+libproxool-java (0.9.1-2ubuntu2) lucid; urgency=low
+
+  * debian/build.xml: Build java5 code, required for generics in source code
+  * debian/control: Depend on default-jre-headless | java5-runtime-headless
+
+ -- Thierry Carrez <thierry.carrez@ubuntu.com>  Wed, 16 Dec 2009 11:03:54 +0100
+
+libproxool-java (0.9.1-2ubuntu1) lucid; urgency=low
+
+  [ chris grzegorczyk <grze@eucalyptus.com> ]
+  * debian/build.xml: Fix the jar packaging to include resources
+
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Tue, 15 Dec 2009 20:01:14 -0600
+
+libproxool-java (0.9.1-2) unstable; urgency=low
+
+  * Build-Depends: replace cglib2.1 with cglib (Closes: #550612)
+  * Switch to default-jdk
+  * Change Section to Java
+  * Bump Standards-Version 3.8.3
+  * Add patches/missing-methods.diff to fix build
+  * Add debian/README.source to describe patch system
+
+ -- Varun Hiremath <varun@debian.org>  Thu, 15 Oct 2009 21:31:21 -0400
+
+libproxool-java (0.9.1-1) unstable; urgency=low
+
+  * new upstream release
+  * Move package to main because cglib2.1 is in main now.
+  * Bump Standards-Version: 3.8.0 (no changes needed).
+  * Reformat debian/copyright.
+  * Fix doc-base file.
+  * Remove generated content from directory 'doc' in the upstream tarball.
+
+ -- Torsten Werner <twerner@debian.org>  Sun, 24 Aug 2008 02:27:39 +0200
+
+libproxool-java (0.9.0~rc3-2) unstable; urgency=low
+
+  * debian/control: Set section to contrib because libcglib2.1-java is in contrib.
+
+ -- Varun Hiremath <varunhiremath@gmail.com>  Sun, 18 Nov 2007 20:05:32 +0530
+
+libproxool-java (0.9.0~rc3-1) unstable; urgency=low
+
+  * Initial release (Closes: #446660)
+
+ -- Varun Hiremath <varunhiremath@gmail.com>  Tue, 24 Apr 2007 17:19:10 +0530
